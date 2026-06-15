@@ -133,6 +133,21 @@ overall verdict cannot be stronger than that. Pre-registration does
 not let you upgrade your confidence beyond what the evidence
 supports.
 
+## Phase 6.5 — Render result figures (REQUIRED — do not skip)
+
+After the statistics are computed, render the result figures the Stage 5
+**figure manifest** specifies. For each manifest row, call
+`load_skill("result-figures")` and follow it to plot the RESULT_JSON
+field named in the manifest, saving each as `stage7_<name>.png` in the
+project workspace. The figure's values MUST match the Section-3
+confirmatory tables. If Stage 5 locked no manifest, still produce at
+least one figure of the primary metric/effect with its 95% CI.
+
+The Stage 7 critic hard-checks D11 (Result Figures): a report with
+confirmatory numbers but no `stage7_*.png` is incomplete. Historical
+gap B1 — every prior paper shipped with only the Stage-4 framework
+figure and zero result figures, because this step was never required.
+
 ## Phase 7 — Write `stage7_result_analyst.md`
 
 Required sections:
@@ -164,7 +179,13 @@ For each hypothesis with coverage:
 ## 6. Pre-registered sensitivity analyses
 [for each, the delta and robustness conclusion]
 
-## 7. Exploratory observations (clearly labelled)
+## 7. Result figures
+[Embed each figure rendered in Phase 6.5 with a numbered caption:
+`![Figure N: <caption>](stage7_<name>.png)`. Each figure's values must
+match the Section-3 tables. At least one figure is required when any
+confirmatory result exists.]
+
+## 8. Exploratory observations (clearly labelled)
 [Optional. Anything interesting that emerged from looking at log_tail
 but was NOT pre-registered. Must carry a flag saying so. Cannot be
 combined with the confirmatory section.]
